@@ -38,9 +38,9 @@ gulp.task('docgen', function(){
 });
 
 gulp.task('test:unit',function(){
-  // setTimeout(function(){
+  setTimeout(function(){
     return gulp.src(dest.path + dest.file).pipe(karma);  
-  // },2000);  
+  },2000);  
 });
 
 gulp.task('test', function(){ runSq('build:test', 'test:unit'); });
