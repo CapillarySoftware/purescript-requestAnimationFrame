@@ -7,11 +7,14 @@ import Control.Monad.Eff
 foreign import data RAF :: !
 
 foreign import requestAnimationFrame 
-  "var requestAnimationFrame = (function(){\
+  "var rAF = (function(){\
   \  return  window.requestAnimationFrame       ||\
   \          window.webkitRequestAnimationFrame ||\
   \          window.mozRequestAnimationFrame    ||\
   \          function( callback ){\
   \            window.setTimeout(callback, 1000 / 60);\
   \          };\
-  \})();" :: forall eff a. Eff eff a -> Eff (raf :: RAF | eff) Unit
+  \  })();\
+  \var requestAnimationFrame = function(x){\
+  \  return function(){ return rAF(x); };\
+  \  };" :: forall eff. Eff eff Unit -> Eff eff Unit
