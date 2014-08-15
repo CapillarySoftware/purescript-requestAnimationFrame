@@ -10,6 +10,6 @@ import Debug.Trace
 spec = describe "Request Animation Frame" $ do
 
   itAsync "should fire" $ \done -> 
-    requestAnimationFrame $ return $ itIs done
+    requestAnimationFrame $ itIs done
 
 
