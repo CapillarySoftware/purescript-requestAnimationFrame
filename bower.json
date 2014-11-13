@@ -1,6 +1,6 @@
 {
   "name": "purescript-requestanimationframe",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/CapillarySoftware/purescript-requestAnimationFrame",
   "authors": [
     "Isaac Shapira <fresheyeball@gmail.com>"
