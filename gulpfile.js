@@ -8,8 +8,8 @@ concat     = require('gulp-concat'),
 
 src        = ['bower_components/purescript-*/src/**/*.purs',
               'bower_components/chai/chai.js',
-              'src/Control/Reactive/RequestAnimationFrame.purs',
-              'tests/Control/Reactive/RequestAnimationFrame.Spec.purs',
+              'src/Control/RequestAnimationFrame.purs',
+              'tests/Control/RequestAnimationFrame.Spec.purs',
               'tests/Main.purs'],
 dest       = {
               path : 'tmp/',

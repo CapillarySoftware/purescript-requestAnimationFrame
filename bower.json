@@ -25,6 +25,7 @@
   ],
   "devDependencies": {
     "purescript-mocha": "*",
-    "purescript-chai": "*"
+    "purescript-chai": "*",
+    "purescript-timers": "~0.0.7"
   }
 }
