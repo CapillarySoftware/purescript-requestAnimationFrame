@@ -8,16 +8,14 @@ foreign import data RAF :: !
 
 foreign import requestAnimationFrame """
   
-  var rAF = (function(){
-    return  window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            function( callback ){
-              window.setTimeout(callback, 1000 / 60);
-            };
-  })();
+  function requestAnimationFrame(x) {
+    var rAF = window.requestAnimationFrame       ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame    ||
+              function( callback ){
+                window.setTimeout(callback, 1000 / 60);
+              };
 
-  function requestAnimationFrame(x){
     return function(){ 
       return rAF(x); 
     };
