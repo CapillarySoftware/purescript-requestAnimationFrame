@@ -7,19 +7,36 @@ import Control.Monad.Eff
 foreign import data RAF :: !
 
 foreign import requestAnimationFrame """
-  
-  var rAF = (function(){
-    return  window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            function( callback ){
-              window.setTimeout(callback, 1000 / 60);
-            };
-  })();
 
-  function requestAnimationFrame(x){
+  var rAF = (function(){
+    var singleton;
+
+    function init() {
+      var shim = window.requestAnimationFrame       ||
+                 window.webkitRequestAnimationFrame ||
+                 window.mozRequestAnimationFrame    ||
+                 function( callback ){
+                   window.setTimeout(callback, 1000 / 60);
+                 };
+
+      return {
+        requestAnimationFrame : shim
+      };
+    }
+
+    return {
+      getSingleton : function(){
+        if(!singleton) {
+          singleton = init();
+        }
+        return singleton;
+      }
+    }
+  })();
+  
+  function requestAnimationFrame(x) {
     return function(){ 
-      return rAF(x); 
+      return rAF.getSingleton().requestAnimationFrame(x); 
     };
   };
   
