@@ -8,36 +8,13 @@ foreign import data RAF :: !
 
 foreign import requestAnimationFrame """
 
-  var rAF = (function(){
-    var singleton;
+  var requestAnimationFrame = (function(){
+    var rAF = typeof requestAnimationFrame === "function" ? requestAnimationFrame :
+              typeof webkitRequestAnimationFrame === "function" ? webkitRequestAnimationFrame :
+              typeof mozRequestAnimationFrame === "function" ? mozRequestAnimationFrame :
+              function(callback) { return setTimeout(callback, 1000 / 60); };
 
-    function init() {
-      var shim = window.requestAnimationFrame       ||
-                 window.webkitRequestAnimationFrame ||
-                 window.mozRequestAnimationFrame    ||
-                 function( callback ){
-                   window.setTimeout(callback, 1000 / 60);
-                 };
-
-      return {
-        requestAnimationFrame : shim
-      };
-    }
-
-    return {
-      getSingleton : function(){
-        if(!singleton) {
-          singleton = init();
-        }
-        return singleton;
-      }
-    }
-  })();
-  
-  function requestAnimationFrame(x) {
-    return function(){ 
-      return rAF.getSingleton().requestAnimationFrame(x); 
-    };
-  };
+    return function(x) { return function(){ return rAF(x); }; };
+  }());
   
 """ :: forall a e. Eff (raf :: RAF | e) a -> Eff (raf :: RAF | e) Unit
