@@ -27,5 +27,8 @@
     "purescript-mocha": "*",
     "purescript-chai": "*",
     "purescript-timers": "~0.0.7"
+  },
+  "dependencies": {
+    "purescript-context": "~0.0.3"
   }
 }
