@@ -15,11 +15,12 @@ foreign import requestAnimationFrame_ """
 
       if(!rAF){
         rAF = (function(){
-          return  context.requestAnimationFrame       ||
-                  context.webkitRequestAnimationFrame ||
-                  context.mozRequestAnimationFrame    ||
+          var c = context();
+          return  c.requestAnimationFrame       ||
+                  c.webkitRequestAnimationFrame ||
+                  c.mozRequestAnimationFrame    ||
                   function( callback ){
-                    context.setTimeout(callback, 1000 / 60);
+                    c.setTimeout(callback, 1000 / 60);
                   };
         })();
       }
@@ -31,7 +32,7 @@ foreign import requestAnimationFrame_ """
     }
   };
 
-""" :: forall a e. Context -> Eff (raf :: RAF | e) a -> Eff (raf :: RAF | e) Unit
+""" :: forall a e. Eff e Context -> Eff (raf :: RAF | e) a -> Eff (raf :: RAF | e) Unit
 
 requestAnimationFrame :: forall a e. Eff (raf :: RAF | e) a -> Eff (raf :: RAF | e) Unit
-requestAnimationFrame = getContext >>= requestAnimationFrame_
+requestAnimationFrame =  requestAnimationFrame_ getContext
