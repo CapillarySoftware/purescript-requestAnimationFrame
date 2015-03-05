@@ -10,12 +10,12 @@ foreign import data RAF :: !
 foreign import requestAnimationFrame_ """
   var rAF = null;
 
-  function requestAnimationFrame_(context){
+  function requestAnimationFrame_(getContext){
     return function(x){
 
       if(!rAF){
         rAF = (function(){
-          var c = context();
+          var c = getContext();
           return  c.requestAnimationFrame       ||
                   c.webkitRequestAnimationFrame ||
                   c.mozRequestAnimationFrame    ||
@@ -25,9 +25,7 @@ foreign import requestAnimationFrame_ """
         })();
       }
 
-      return function(){
-        return rAF(x);
-      };
+      return function(){ return rAF(x); };
 
     }
   };
