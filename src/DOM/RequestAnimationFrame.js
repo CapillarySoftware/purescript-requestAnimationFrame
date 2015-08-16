@@ -5,7 +5,7 @@
 var requestAnimationFrame = null;
 
 // http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-exports.requestAnimationFrame_(window_) {
+exports.requestAnimationFrame_ = function(window_) {
     return function(action) {
 
         if (!requestAnimationFrame) {
