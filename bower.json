@@ -21,11 +21,6 @@
     "gulpfile.js",
     "package.json"
   ],
-  "devDependencies": {
-    "purescript-mocha": "*",
-    "purescript-chai": "*",
-    "purescript-timers": "~0.0.7"
-  },
   "dependencies": {
     "purescript-dom": "~0.2.0"
   }
