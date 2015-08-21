@@ -6,7 +6,6 @@
     "Isaac Shapira <fresheyeball@gmail.com>"
   ],
   "description": "Request Animation Frame bindings and polyfill",
-  "main": "src/Control/Reactive/RequestAnimationFrame.purs",
   "repository": {
     "type": "git",
     "url": "git://github.com/CapillarySoftware/purescript-requestAnimationFrame.git"
