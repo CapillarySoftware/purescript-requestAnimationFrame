@@ -7,11 +7,6 @@
   ],
   "description": "Request Animation Frame bindings and polyfill",
   "main": "src/Control/Reactive/RequestAnimationFrame.purs",
-  "keywords": [
-    "Purescript",
-    "Animation",
-    "requestAnimationFrame"
-  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/CapillarySoftware/purescript-requestAnimationFrame.git"
