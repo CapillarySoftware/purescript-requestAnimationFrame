@@ -12,6 +12,10 @@
     "Animation",
     "requestAnimationFrame"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CapillarySoftware/purescript-requestAnimationFrame.git"
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
