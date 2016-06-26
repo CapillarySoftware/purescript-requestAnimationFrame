@@ -3,7 +3,7 @@ sudo: false
 node_js:
   - 5.0
 install:
-  - npm install -g purescript pulp
+  - npm install -g purescript pulp bower
   - bower install
 script:
   - pulp test
