@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "homepage": "https://github.com/CapillarySoftware/purescript-requestAnimationFrame",
   "authors": [
-    "Isaac Shapira <fresheyeball@gmail.com>"
+    "Isaac Shapira <fresheyeball@gmail.com>",
+    "Ryan Rempel <rgrempel@gmail.com>"
   ],
   "description": "Request Animation Frame bindings and polyfill",
   "repository": {
@@ -22,6 +23,14 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-dom": "~0.2.0"
+    "purescript-dom": "^1.0.0",
+    "purescript-eff": "^1.0.0",
+    "purescript-datetime": "^1.0.0",
+    "purescript-prelude": "^1.0.0"
+  },
+  "devDependencies": {
+    "purescript-test-unit": "^7.0.0",
+    "purescript-refs": "^1.0.0",
+    "purescript-now": "^1.0.0"
   }
 }
