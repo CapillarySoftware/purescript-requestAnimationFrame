@@ -6,7 +6,7 @@ module DOM.RequestAnimationFrame
 
 import Prelude
 
-import Control.Monad.Eff
+import Control.Monad.Eff (Eff)  
 
 import DOM (DOM())
 import DOM.HTML (window)
