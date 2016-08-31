@@ -1,6 +1,6 @@
 {
   "name": "purescript-requestanimationframe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/CapillarySoftware/purescript-requestAnimationFrame",
   "authors": [
     "Isaac Shapira <fresheyeball@gmail.com>"
@@ -22,6 +22,6 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-dom": "~0.2.0"
+    "purescript-dom": "^2.0.0"
   }
 }
